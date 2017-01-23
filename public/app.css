@@ -1,0 +1,22 @@
+.header{
+  background:white;
+  opacity: 0.7;
+}
+.header div h1 {
+  float:left;
+  padding:0;
+  margin:0;
+  opacity: 1;
+}
+.header div p{
+  float:right;
+  padding:5px;
+  margin:0;
+  opacity: 1;
+}
+.clear{
+  clear:both;
+}
+.none{
+  display:none;
+}

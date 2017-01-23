@@ -1,0 +1,32 @@
+%meta{:charset => "UTF-8"}
+%title 金くれ
+%link{:href => "http://ssig33.com/common.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+#all
+  %p
+    %a{href: '/auth'} Sign in with Twitter
+  %h1 金くれ
+  %p 金くれはネット乞食の為の口座情報登録サイトです。 Twitter と連動しています。
+  %h2
+    %a{href: '/auth'} Twitter アカウントでログインして口座情報を登録
+  %table
+    %tr
+      %th Twitter
+      %th 口座番号
+      %th 金を貰ったらやること、メッセージ
+    -@users.each do |u|
+      -begin
+        %tr.autopagerize_page_element
+          %td
+            %a{href: "/#{u.screen_name}"}
+              %img{src: u.icon, alt: u.screen_name}
+            %a{href: "/#{u.screen_name}"}=u.screen_name
+          %td=u.account
+          %td
+            =u.post_short
+            -if u.long?
+              %a{href: "/#{u.screen_name}"} ...
+      -rescue
+  //.pager= paginate @users
+  .pager
+    %a{href: "/?page=#{page+1}", ref: 'next'} Next
+    

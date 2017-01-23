@@ -1,0 +1,39 @@
+%html
+  %title="金くれ - #{@user.screen_name}"
+  <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+  %script{src: '/app.js'}
+  <link href="/app.css" media="screen" rel="stylesheet" type="text/css" />
+  
+  %link{:href => "http://ssig33.com/common.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+  #all
+    .header
+      %div
+        %h1
+          %a{:href => "/"} 金くれ
+        
+        -if session[:login_user_id] == @user.id
+          %p
+            %a{href: '/home'} 
+              %button 編集する
+        -else
+          %p
+            %a{:href => "/auth"} Sign In with Twitter
+        %br.clear
+    #main
+      %h2
+        =@user.name
+        (
+        %a{:href => "http://twitter.com/#{@user.screen_name}"}="@#{@user.screen_name}"
+        )
+        が金を欲しがっています
+      %p
+        %img{:src => @user.icon}/
+        %br/
+      %h3 金を貰ったらやること、メッセージ
+      %p!=@user.message
+      %h3 口座番号
+      %p=@user.account
+.none
+  #here_is user_page
+  #images=@user.background_images.map{|x| x.url}.to_json
+  #font_color=@user.font_color

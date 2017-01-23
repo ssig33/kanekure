@@ -1,0 +1,29 @@
+%title 金くれ
+%link{:href => "http://ssig33.com/common.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+.all
+  %h1
+    %a{href: "/"} 金くれ
+  %p welcome #{@user.screen_name}
+  %h2 口座情報登録
+  %form{action: '/home', method: 'post'}
+    %input{type: 'hidden', twitter_id: @user.twitter_id}
+    %p
+      %b 口座情報
+      %br
+      %input{name: "account", value: @user.account, size: 50}
+    %p
+      %b 金をもらったらやることや、メッセージ
+      Markdown を使用することができます
+      %br
+      %textarea{name: 'message', rows: 15, cols: 80}~@user.post
+    %p
+      %b 背景画像
+      改行で区切って URL を入力してください
+      %br
+      %textarea{name: 'images', rows: 5, cols: 80}~@user.background_images.map{|x| x.url}.join("\n")
+    %p
+      %b 文字色
+      %input{name: 'font_color', value: @user.font_color}
+
+    %p
+      %input{type: 'submit', name: 'submit', value: '保存'}
