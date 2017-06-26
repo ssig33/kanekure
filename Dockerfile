@@ -6,6 +6,6 @@ COPY Gemfile.lock ./
 RUN bundle -j9
 COPY . ./
 
-EXPOSE 5000
+ENV PORT=5000
 
-CMD RACK_ENV=production ruby app.rb -p 5000 -o 0.0.0.0
+CMD RACK_ENV=production ruby app.rb -p $PORT -o 0.0.0.0
