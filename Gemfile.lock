@@ -23,7 +23,7 @@ GEM
     multi_json (1.12.1)
     multipart-post (2.0.0)
     mysql2 (0.4.4)
-    oauth (0.5.1)
+    oauth (0.5.5)
     puma (3.6.0)
     rack (1.6.4)
     rack-protection (1.5.3)
