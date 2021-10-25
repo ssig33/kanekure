@@ -25,7 +25,7 @@ GEM
     mysql2 (0.4.4)
     oauth (0.5.1)
     puma (3.6.0)
-    rack (1.6.4)
+    rack (1.6.13)
     rack-protection (1.5.3)
       rack
     redcarpet (3.3.4)
